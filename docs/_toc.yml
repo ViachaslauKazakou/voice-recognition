@@ -7,4 +7,9 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
-- file: setup
+- file: setup.md
+  title: "Jupyter Book"
+  sections:
+    - file: test.md
+- file: how_to_start.md
+  
