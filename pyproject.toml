@@ -23,6 +23,8 @@ accelerate = "^1.6.0"
 openai-whisper = "20240930"
 ollama = "^0.4.7"
 pygments = "^2.19.1"
+myst-parser = "^3.0.0"
+jupyter-book = "^1.0.4.post1"
 
 
 
