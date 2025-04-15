@@ -25,6 +25,7 @@ jobs:
 
       - name: Build the book
         run: |
+          jupyter-book clean docs/
           jupyter-book build docs/
 
       - name: Deploy to GitHub Pages
