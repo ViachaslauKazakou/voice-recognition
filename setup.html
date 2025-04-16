@@ -360,7 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -376,6 +378,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-settings">VScode settings</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -404,6 +414,46 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="how_to_start.html"><span class="std std-doc">How to start</span></a></p></li>
 </ul>
+<section id="vscode-settings">
+<h2>VScode settings<a class="headerlink" href="#vscode-settings" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Run app&quot;,
+            &quot;type&quot;: &quot;debugpy&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/src/main.py&quot;,
+            &quot;console&quot;: &quot;integratedTerminal&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Python Debugger: Current File&quot;,
+            &quot;type&quot;: &quot;debugpy&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${file}&quot;,
+            &quot;console&quot;: &quot;integratedTerminal&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Pytest&quot;,
+            &quot;type&quot;: &quot;debugpy&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;module&quot;: &quot;pytest&quot;,
+            &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
+            &quot;args&quot;: [
+                &quot;-s&quot;,
+                &quot;-v&quot;,
+                // &quot;${file}&quot;
+                &quot;${workspaceFolder}/tests/test_dice100.py&quot;
+            ],
+            &quot;console&quot;: &quot;integratedTerminal&quot;,
+            &quot;purpose&quot;: [&quot;debug-test&quot;],
+            &quot;python&quot;: &quot;${command:python.interpreterPath}&quot;
+
+        }
+    ]
+    ```
+</pre></div>
+</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -462,6 +512,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vscode-settings">VScode settings</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
