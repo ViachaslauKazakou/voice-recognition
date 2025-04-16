@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to start &#8212; My sample book</title>
+    <title>🎙 Использование openai-whisper с ffmpeg &#8212; My sample book</title>
   
   
   
@@ -57,10 +57,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'how_to_start';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'whisper';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Document settings" href="test.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -187,7 +188,7 @@
 
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">How to start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_start.html">How to start</a></li>
 </ul>
 
     </div>
@@ -259,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fhow_to_start.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fwhisper.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,7 +290,7 @@
       
       
       
-      <li><a href="_sources/how_to_start.md" target="_blank"
+      <li><a href="_sources/whisper.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +361,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -371,11 +374,35 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>How to start</h1>
+    <h1>🎙 Использование openai-whisper с ffmpeg</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">📦 Установка</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper">Whisper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">FFmpeg</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-brew">macOS (через brew)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-debian">Ubuntu/Debian:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Проверка установки</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔍 Использование из командной строки</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Опции:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">🧪 Использование из Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🎧 Поддерживаемые форматы</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -385,9 +412,97 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="how-to-start">
-<h1>How to start<a class="headerlink" href="#how-to-start" title="Link to this heading">#</a></h1>
-<p>How application works</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="openai-whisper-ffmpeg">
+<h1>🎙 Использование <code class="docutils literal notranslate"><span class="pre">openai-whisper</span></code> с <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code><a class="headerlink" href="#openai-whisper-ffmpeg" title="Link to this heading">#</a></h1>
+<p>Whisper — это инструмент от OpenAI для распознавания речи. Он работает совместно с FFmpeg, что позволяет обрабатывать аудио- и видеофайлы различных форматов.</p>
+<hr class="docutils" />
+<section id="id1">
+<h2>📦 Установка<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="whisper">
+<h3>Whisper<a class="headerlink" href="#whisper" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/openai/whisper.git
+
+pip<span class="w"> </span>install<span class="w"> </span>openai-whisper
+</pre></div>
+</div>
+</section>
+<section id="ffmpeg">
+<h3>FFmpeg<a class="headerlink" href="#ffmpeg" title="Link to this heading">#</a></h3>
+<section id="macos-brew">
+<h4>macOS (через brew)<a class="headerlink" href="#macos-brew" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</pre></div>
+</div>
+</section>
+<section id="ubuntu-debian">
+<h4>Ubuntu/Debian:<a class="headerlink" href="#ubuntu-debian" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ffmpeg
+</pre></div>
+</div>
+</section>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Скачай FFmpeg с <a class="reference external" href="https://ffmpeg.org/download.html">https://ffmpeg.org/download.html</a></p></li>
+<li><p>Добавь путь к <code class="docutils literal notranslate"><span class="pre">ffmpeg.exe</span></code> в системную переменную <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>✅ Проверка установки<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-version
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import whisper; print(whisper.__version__)&quot;</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>🔍 Использование из командной строки<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whisper<span class="w"> </span>my_audio.mp3<span class="w"> </span>--language<span class="w"> </span>Russian
+</pre></div>
+</div>
+<section id="id4">
+<h3>Опции:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--language</span></code> — язык распознавания (например, Russian, English)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--model</span></code> — модель (<code class="docutils literal notranslate"><span class="pre">tiny</span></code>, <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">small</span></code>, <code class="docutils literal notranslate"><span class="pre">medium</span></code>, <code class="docutils literal notranslate"><span class="pre">large</span></code>)</p></li>
+</ul>
+<p>Пример:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>whisper<span class="w"> </span>my_audio.mp3<span class="w"> </span>--language<span class="w"> </span>Russian<span class="w"> </span>--model<span class="w"> </span>medium
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="python">
+<h2>🧪 Использование из Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">whisper</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">whisper</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">transcribe</span><span class="p">(</span><span class="s2">&quot;my_audio.mp3&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;ru&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2>🎧 Поддерживаемые форматы<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Благодаря <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code>, поддерживаются:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.mp3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.wav</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.m4a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.mp4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ogg</span></code></p></li>
+<li><p>и другие форматы (включая видео, из которых извлекается звук)</p></li>
+</ul>
+<hr class="docutils" />
+<p>Whisper сам определяет язык, если не указан, но лучше задавать явно для лучшей точности.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -420,21 +535,43 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="test.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Document settings</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">📦 Установка</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whisper">Whisper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg">FFmpeg</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-brew">macOS (через brew)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-debian">Ubuntu/Debian:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">✅ Проверка установки</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🔍 Использование из командной строки</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Опции:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">🧪 Использование из Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🎧 Поддерживаемые форматы</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
