@@ -387,9 +387,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="project-settings">
 <h1>Project settings<a class="headerlink" href="#project-settings" title="Link to this heading">#</a></h1>
-<p>poetry config virtualenvs.in-project true</p>
+<ol class="arabic simple">
+<li><p>Create virtual environment using poetry</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">install</span></code></p>
+<p>If tou want create .venv inside project:</p>
+<p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">config</span> <span class="pre">virtualenvs.in-project</span> <span class="pre">true</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Instal ollama</p></li>
+<li><p>Pull models</p></li>
+</ol>
 <p><code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">pull</span> <span class="pre">llama2</span></code></p>
-<p>ollama pull gemma</p>
+<p><code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">pull</span> <span class="pre">gemma</span></code></p>
 <p>ollama pull codellama</p>
 <p>ollama pull mixtral</p>
 <ul class="simple">
