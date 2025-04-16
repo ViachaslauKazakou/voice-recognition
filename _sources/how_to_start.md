@@ -1,1 +1,3 @@
-## How to start
+# How to start
+
+How application works
