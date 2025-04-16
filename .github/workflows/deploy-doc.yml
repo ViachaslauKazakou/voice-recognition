@@ -21,13 +21,28 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -U jupyter-book
+          pip install -U jupyter-book matplotlib
+
+      - name: Clean and Migrate TOC
+        run: |
+          jupyter-book clean docs/
 
       - name: Build the book
         run: |
-          jupyter-book clean docs/
           jupyter-book build docs/
+          echo "Build finished"
+            if [ -f /home/runner/work/voice-recognition/voice-recognition/docs/_build/html/reports/notebooks.err.log ]; then
+            echo "Notebooks build failed"
+            cat /home/runner/work/voice-recognition/voice-recognition/docs/_build/html/reports/notebooks.err.log
+            else
+            echo "Notebooks build succeeded"
+            fi
 
+
+      - name: Add .nojekyll file
+        run: |
+          touch docs/_build/html/.nojekyll
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

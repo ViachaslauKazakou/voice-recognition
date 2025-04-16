@@ -1,4 +1,4 @@
-## Project settings
+# Project settings
 
 poetry config virtualenvs.in-project true
 
