@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (
     QPushButton,
     QLabel,
     QSizePolicy,
-    QScrollArea   
+    QScrollArea,
 )
 from manager import SoundManager, AiManager
 from pygments import highlight
@@ -42,35 +42,39 @@ class AudioPopup(QDialog):
         button_layout.addWidget(self.start_button)
         button_layout.addWidget(self.recognize_button)
         button_layout.addWidget(self.explain_button)
-        
+
         # Add answer layout to the main layout
         self.question_layout = QHBoxLayout()
         self.question_label = QLabel("Question: ")
         self.question_label.setWordWrap(True)  # Enable word wrapping
-        self.question_label.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)  # Allow the label to expand horizontally
+        self.question_label.setSizePolicy(
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred
+        )  # Allow the label to expand horizontally
         self.question_layout.addWidget(self.question_label)
 
         # Nest the button layout into the main layout
         main_layout.addLayout(button_layout)
         # Add the answer label to the main layout
         main_layout.addWidget(self.question_label)
-        
+
         self.answer_layout = QHBoxLayout()
         # Add answer label
         self.answer_label = QLabel("Answer: ")
         self.answer_label.setWordWrap(True)
-        self.answer_label.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)  # Allow the label to expand horizontally
+        self.answer_label.setSizePolicy(
+            QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred
+        )  # Allow the label to expand horizontally
         self.answer_layout.addWidget(self.answer_label)
         # main_layout.addWidget(self.answer_label)
-        
+
         # Create a scroll area for the answer label
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)  # Allow resizing
         scroll_area.setWidget(self.answer_label)  # Set the answer label as the scrollable widget
         main_layout.addWidget(scroll_area)
-        
+
         # Set the main layout for the dialog
-        
+
         self.setLayout(main_layout)
 
         # Connect buttons to functions
@@ -119,7 +123,7 @@ class AudioPopup(QDialog):
 
         self.answer_label.setText(answer)
         self.status_label.setText("✅ Explain complete.")
-        
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
