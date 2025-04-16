@@ -2,14 +2,15 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro  # Specify the root file of the book
+root: intro 
+title: "Documentation" 
 chapters:
+  - file: settings.md
+    title: "Application settings"
+    sections:
+      - file: setup.md
+        title: "Basic settings"
+  - file: how_to_start.md
   - file: markdown
   - file: notebooks
   - file: markdown-notebooks
-  - file: setup.md
-    title: "Application settings"
-    sections:
-      - file: test.md
-        title: "Basic settings"
-  - file: how_to_start.md

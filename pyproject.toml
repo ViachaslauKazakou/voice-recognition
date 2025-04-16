@@ -25,6 +25,7 @@ ollama = "^0.4.7"
 pygments = "^2.19.1"
 myst-parser = "^3.0.0"
 jupyter-book = "^1.0.4.post1"
+matplotlib = "^3.10.1"
 
 
 
