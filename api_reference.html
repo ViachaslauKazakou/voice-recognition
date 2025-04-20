@@ -383,7 +383,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soundmanager-from-manager-py">SoundManager (from manager.py)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-src.manager">SoundManager (from manager.py)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.timer"><code class="docutils literal notranslate"><span class="pre">timer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels"><code class="docutils literal notranslate"><span class="pre">AIModels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light"><code class="docutils literal notranslate"><span class="pre">AIModels.light</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.medium"><code class="docutils literal notranslate"><span class="pre">AIModels.medium</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.heavy"><code class="docutils literal notranslate"><span class="pre">AIModels.heavy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light_1"><code class="docutils literal notranslate"><span class="pre">AIModels.light_1</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.distilgpt2"><code class="docutils literal notranslate"><span class="pre">AIModels.distilgpt2</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer"><code class="docutils literal notranslate"><span class="pre">HFTransformer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer.generate"><code class="docutils literal notranslate"><span class="pre">HFTransformer.generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager"><code class="docutils literal notranslate"><span class="pre">SoundManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager.record"><code class="docutils literal notranslate"><span class="pre">SoundManager.record()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager.recognition"><code class="docutils literal notranslate"><span class="pre">SoundManager.recognition()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager"><code class="docutils literal notranslate"><span class="pre">AiManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager.ask_ollama_api"><code class="docutils literal notranslate"><span class="pre">AiManager.ask_ollama_api()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager.ask_ollama"><code class="docutils literal notranslate"><span class="pre">AiManager.ask_ollama()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audiopopup-from-main-py">AudioPopup (from main.py)</a></li>
 </ul>
             </nav>
@@ -398,8 +423,90 @@ document.write(`
                   
   <section id="desktop-reference">
 <h1>Desktop Reference<a class="headerlink" href="#desktop-reference" title="Link to this heading">#</a></h1>
-<section id="soundmanager-from-manager-py">
-<h2>SoundManager (from manager.py)<a class="headerlink" href="#soundmanager-from-manager-py" title="Link to this heading">#</a></h2>
+<section id="module-src.manager">
+<span id="soundmanager-from-manager-py"></span><h2>SoundManager (from manager.py)<a class="headerlink" href="#module-src.manager" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.manager.timer">
+<span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">timer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.timer" title="Link to this definition">#</a></dt>
+<dd><p>Decorator to measure the execution time of a function.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.manager.AIModels">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">AIModels</span></span><a class="reference internal" href="_modules/src/manager.html#AIModels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.AIModels" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to manage AI models and their identifiers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.light">
+<span class="sig-name descname"><span class="pre">light</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'google/flan-t5-base'</span></em><a class="headerlink" href="#src.manager.AIModels.light" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.medium">
+<span class="sig-name descname"><span class="pre">medium</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'google/flan-t5-large'</span></em><a class="headerlink" href="#src.manager.AIModels.medium" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.heavy">
+<span class="sig-name descname"><span class="pre">heavy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'google/flan-t5-xl'</span></em><a class="headerlink" href="#src.manager.AIModels.heavy" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.light_1">
+<span class="sig-name descname"><span class="pre">light_1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mistralai/Mistral-7B-Instruct-v0.2'</span></em><a class="headerlink" href="#src.manager.AIModels.light_1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.distilgpt2">
+<span class="sig-name descname"><span class="pre">distilgpt2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'distilgpt2'</span></em><a class="headerlink" href="#src.manager.AIModels.distilgpt2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.manager.HFTransformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">HFTransformer</span></span><a class="reference internal" href="_modules/src/manager.html#HFTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.HFTransformer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.manager.HFTransformer.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#HFTransformer.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.HFTransformer.generate" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.manager.SoundManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">SoundManager</span></span><a class="reference internal" href="_modules/src/manager.html#SoundManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.SoundManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.manager.SoundManager.record">
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#SoundManager.record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.SoundManager.record" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.manager.SoundManager.recognition">
+<span class="sig-name descname"><span class="pre">recognition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#SoundManager.recognition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.SoundManager.recognition" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.manager.AiManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">AiManager</span></span><a class="reference internal" href="_modules/src/manager.html#AiManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.AiManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to manage AI models and their interactions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.manager.AiManager.ask_ollama_api">
+<span class="sig-name descname"><span class="pre">ask_ollama_api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#AiManager.ask_ollama_api"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.AiManager.ask_ollama_api" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.manager.AiManager.ask_ollama">
+<span class="sig-name descname"><span class="pre">ask_ollama</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#AiManager.ask_ollama"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.AiManager.ask_ollama" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="audiopopup-from-main-py">
 <h2>AudioPopup (from main.py)<a class="headerlink" href="#audiopopup-from-main-py" title="Link to this heading">#</a></h2>
@@ -461,7 +568,32 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soundmanager-from-manager-py">SoundManager (from manager.py)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-src.manager">SoundManager (from manager.py)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.timer"><code class="docutils literal notranslate"><span class="pre">timer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels"><code class="docutils literal notranslate"><span class="pre">AIModels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light"><code class="docutils literal notranslate"><span class="pre">AIModels.light</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.medium"><code class="docutils literal notranslate"><span class="pre">AIModels.medium</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.heavy"><code class="docutils literal notranslate"><span class="pre">AIModels.heavy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light_1"><code class="docutils literal notranslate"><span class="pre">AIModels.light_1</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.distilgpt2"><code class="docutils literal notranslate"><span class="pre">AIModels.distilgpt2</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer"><code class="docutils literal notranslate"><span class="pre">HFTransformer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer.generate"><code class="docutils literal notranslate"><span class="pre">HFTransformer.generate()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager"><code class="docutils literal notranslate"><span class="pre">SoundManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager.record"><code class="docutils literal notranslate"><span class="pre">SoundManager.record()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.SoundManager.recognition"><code class="docutils literal notranslate"><span class="pre">SoundManager.recognition()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager"><code class="docutils literal notranslate"><span class="pre">AiManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager.ask_ollama_api"><code class="docutils literal notranslate"><span class="pre">AiManager.ask_ollama_api()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AiManager.ask_ollama"><code class="docutils literal notranslate"><span class="pre">AiManager.ask_ollama()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audiopopup-from-main-py">AudioPopup (from main.py)</a></li>
 </ul>
   </nav></div>
