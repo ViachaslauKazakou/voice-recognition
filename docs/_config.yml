@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: AI Voice Chat
+author: Viachaslau Kazakou
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -30,3 +30,24 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_css:
+    - _static/custom.css
+
+sphinx:
+  extra_extensions:
+    - sphinx.ext.autodoc
+    - sphinx.ext.napoleon
+    - sphinx.ext.viewcode
+    - sphinx_autodoc_typehints
+
+  config:
+    autodoc_member_order: 'bysource'
+    autodoc_inherit_docstrings: false
+    # autodoc_class_content: 'both'
+    autodoc_default_options:
+      members: true
+      undoc-members: true
+      show-inheritance: true
+      inherited-members: true
+      exclude-members: __weakref__  
+

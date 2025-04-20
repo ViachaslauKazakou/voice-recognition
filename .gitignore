@@ -75,5 +75,3 @@ docs/_build/
 *.swn
 *.bak
 *.tmp
-
-docs/_build/*

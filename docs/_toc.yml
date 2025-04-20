@@ -14,3 +14,9 @@ chapters:
   - file: markdown
   - file: notebooks
   - file: markdown-notebooks
+  - file: whisper.md
+    title: "Whisper"
+  - file: api_reference
+    title: "Code reference"
+
+    

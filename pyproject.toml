@@ -26,6 +26,9 @@ pygments = "^2.19.1"
 myst-parser = "^3.0.0"
 jupyter-book = "^1.0.4.post1"
 matplotlib = "^3.10.1"
+roman-numerals-py = "3.1.0" 
+# sphinx = "8.2.3" 
+sphinx_autodoc_typehints = "1.24.0"
 
 
 
