@@ -354,9 +354,11 @@ document.write(`
 <span class="c1"># модель, например &quot;meta-llama/Llama-2-7b-chat-hf&quot; или &quot;google/flan-t5-base&quot;</span>
 <div class="viewcode-block" id="timer">
 <a class="viewcode-back" href="../../api_reference.html#src.manager.timer">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decorator to measure the execution time of a function.</span>
+<span class="sd">    param func: The function to be decorated.</span>
+<span class="sd">    return: dict[str, float] - A dictionary containing the result of the function and its execution time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
@@ -384,7 +386,8 @@ document.write(`
     <span class="n">medium</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;google/flan-t5-large&quot;</span>
     <span class="n">heavy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;google/flan-t5-xl&quot;</span>
     <span class="n">light_1</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mistralai/Mistral-7B-Instruct-v0.2&quot;</span>
-    <span class="n">distilgpt2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;distilgpt2&quot;</span></div>
+    <span class="n">distilgpt2</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;distilgpt2&quot;</span>
+    <span class="n">llama_mistral</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mistral&quot;</span></div>
 
     <span class="c1"># heavy: str = &quot;mistralai/Mistral-7B-Instruct-v0.2&quot;</span>
     <span class="c1"># light: str = &quot;meta-llama/Llama-2-7b-chat-hf&quot;</span>
@@ -424,6 +427,9 @@ document.write(`
 <div class="viewcode-block" id="SoundManager">
 <a class="viewcode-back" href="../../api_reference.html#src.manager.SoundManager">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SoundManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to manage sound recording and speech recognition.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Initialize the Whisper model (you can choose a different size: &quot;tiny&quot;, &quot;base&quot;, &quot;small&quot;, &quot;medium&quot;, &quot;large&quot;)</span>
@@ -434,6 +440,8 @@ document.write(`
 <div class="viewcode-block" id="SoundManager.record">
 <a class="viewcode-back" href="../../api_reference.html#src.manager.SoundManager.record">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Record audio from the microphone and save it to a WAV file.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recording sound...&quot;</span><span class="p">)</span>
         <span class="n">duration</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># seconds</span>
         <span class="n">samplerate</span> <span class="o">=</span> <span class="mi">44100</span>
@@ -455,6 +463,9 @@ document.write(`
 <a class="viewcode-back" href="../../api_reference.html#src.manager.SoundManager.recognition">[docs]</a>
     <span class="nd">@timer</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">recognition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recognize speech from an audio file and return the transcribed text.&quot;&quot;&quot;</span>
+        <span class="c1"># Check if the model is loaded</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recognizing speech...&quot;</span><span class="p">)</span>
 
         <span class="c1"># Use the recorded file if no file_path is provided</span>
@@ -489,6 +500,8 @@ document.write(`
 <div class="viewcode-block" id="AiManager.ask_ollama_api">
 <a class="viewcode-back" href="../../api_reference.html#src.manager.AiManager.ask_ollama_api">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">ask_ollama_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ask a question to the Ollama API and return the response. Using internal api for request&quot;&quot;&quot;</span>
         <span class="n">modified_prompt</span> <span class="o">=</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;You are a Senior software engineer with main skill Python, answer the next question: </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
@@ -507,7 +520,7 @@ document.write(`
         <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;You are a Senior software engineer with main skill Python, answer the next question:&quot;</span>
         <span class="n">modified_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[INST]</span><span class="si">{</span><span class="n">role</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">[/INST]&quot;</span>
         <span class="n">response</span><span class="p">:</span> <span class="n">ChatResponse</span> <span class="o">=</span> <span class="n">chat</span><span class="p">(</span>
-            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;mistral&quot;</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">AIModels</span><span class="o">.</span><span class="n">llama_mistral</span><span class="p">,</span>
             <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">{</span>
                     <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>

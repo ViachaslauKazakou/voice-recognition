@@ -391,6 +391,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.heavy"><code class="docutils literal notranslate"><span class="pre">AIModels.heavy</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light_1"><code class="docutils literal notranslate"><span class="pre">AIModels.light_1</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.distilgpt2"><code class="docutils literal notranslate"><span class="pre">AIModels.distilgpt2</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.llama_mistral"><code class="docutils literal notranslate"><span class="pre">AIModels.llama_mistral</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer"><code class="docutils literal notranslate"><span class="pre">HFTransformer</span></code></a><ul class="nav section-nav flex-column">
@@ -438,7 +439,14 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="src.manager.timer">
 <span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">timer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.timer" title="Link to this definition">#</a></dt>
-<dd><p>Decorator to measure the execution time of a function.</p>
+<dd><p>Decorator to measure the execution time of a function.
+param func: The function to be decorated.
+return: dict[str, float] - A dictionary containing the result of the function and its execution time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
@@ -471,6 +479,11 @@ document.write(`
 <span class="sig-name descname"><span class="pre">distilgpt2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'distilgpt2'</span></em><a class="headerlink" href="#src.manager.AIModels.distilgpt2" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.manager.AIModels.llama_mistral">
+<span class="sig-name descname"><span class="pre">llama_mistral</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mistral'</span></em><a class="headerlink" href="#src.manager.AIModels.llama_mistral" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -488,10 +501,12 @@ document.write(`
 <dt class="sig sig-object py" id="src.manager.SoundManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.manager.</span></span><span class="sig-name descname"><span class="pre">SoundManager</span></span><a class="reference internal" href="_modules/src/manager.html#SoundManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.SoundManager" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to manage sound recording and speech recognition.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="src.manager.SoundManager.record">
 <span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#SoundManager.record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.SoundManager.record" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Record audio from the microphone and save it to a WAV file.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="src.manager.SoundManager.recognition">
@@ -508,7 +523,8 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="src.manager.AiManager.ask_ollama_api">
 <span class="sig-name descname"><span class="pre">ask_ollama_api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/manager.html#AiManager.ask_ollama_api"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.manager.AiManager.ask_ollama_api" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Ask a question to the Ollama API and return the response. Using internal api for request</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="src.manager.AiManager.ask_ollama">
@@ -619,6 +635,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.heavy"><code class="docutils literal notranslate"><span class="pre">AIModels.heavy</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.light_1"><code class="docutils literal notranslate"><span class="pre">AIModels.light_1</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.distilgpt2"><code class="docutils literal notranslate"><span class="pre">AIModels.distilgpt2</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.AIModels.llama_mistral"><code class="docutils literal notranslate"><span class="pre">AIModels.llama_mistral</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#src.manager.HFTransformer"><code class="docutils literal notranslate"><span class="pre">HFTransformer</span></code></a><ul class="nav section-nav flex-column">
