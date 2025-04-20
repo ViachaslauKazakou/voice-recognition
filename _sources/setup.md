@@ -1,6 +1,7 @@
 # Project settings
 
-1. Create virtual environment using poetry
+
+## 1. Create virtual environment using poetry
 
 ``` poetry install ```
 
@@ -8,9 +9,9 @@ If tou want create .venv inside project:
 
 ``` poetry config virtualenvs.in-project true ```
 
-2. Instal ollama
+## 2. Instal ollama
 
-3. Pull models
+## 3. Pull models
 
 ```ollama pull llama2```
 
