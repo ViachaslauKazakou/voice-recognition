@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Document settings &#8212; AI Voice Chat</title>
+    <title>Desktop Reference &#8212; AI Voice Chat</title>
   
   
   
@@ -58,11 +58,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'settings';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api_reference';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project settings" href="setup.html" />
-    <link rel="prev" title="Welcome to Audio recognition book" href="intro.html" />
+    <link rel="prev" title="🎙 Использование openai-whisper с ffmpeg" href="whisper.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,14 +180,14 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Document settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Document settings</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="how_to_start.html">How to start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whisper.html">Whisper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Code reference</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Code reference</a></li>
 </ul>
 
     </div>
@@ -260,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsettings.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fapi_reference.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,7 +289,7 @@
       
       
       
-      <li><a href="_sources/settings.md" target="_blank"
+      <li><a href="_sources/api_reference.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +299,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.rst</span>
 </a>
 </li>
       
@@ -374,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Document settings</h1>
+    <h1>Desktop Reference</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,30 +383,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Document settings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-ai-app-pyqt6-whisper-ollama">🎙️ Audio AI App (PyQt6 + Whisper + Ollama)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🧩 Зависимости</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">🛠 Установка на macOS</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">1. Установи Poetry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Создай виртуальное окружение</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Установи зависимости</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg-portaudio">4. Установи FFmpeg и PortAudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soundmanager-from-manager-py">SoundManager (from manager.py)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audiopopup-from-main-py">AudioPopup (from main.py)</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama">🤖 Установка и запуск Ollama</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Установка:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Запуск сервера:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Загрузка модели:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui">🚀 Запуск GUI приложения</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ Как пользоваться</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">📁 Структура проекта</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🧠 Модели</a></li>
-</ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -418,139 +396,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="document-settings">
-<h1>Document settings<a class="headerlink" href="#document-settings" title="Link to this heading">#</a></h1>
+  <section id="desktop-reference">
+<h1>Desktop Reference<a class="headerlink" href="#desktop-reference" title="Link to this heading">#</a></h1>
+<section id="soundmanager-from-manager-py">
+<h2>SoundManager (from manager.py)<a class="headerlink" href="#soundmanager-from-manager-py" title="Link to this heading">#</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="audio-ai-app-pyqt6-whisper-ollama">
-<h1>🎙️ Audio AI App (PyQt6 + Whisper + Ollama)<a class="headerlink" href="#audio-ai-app-pyqt6-whisper-ollama" title="Link to this heading">#</a></h1>
-<p>Приложение на PyQt6, которое позволяет:</p>
-<ul class="simple">
-<li><p>🎤 Записывать аудио с микрофона</p></li>
-<li><p>🧠 Распознавать речь с помощью Whisper</p></li>
-<li><p>🤖 Отправлять запросы к LLM (Ollama / Transformers)</p></li>
-<li><p>🪄 Получать пояснения к коду или вопросам на русском</p></li>
-</ul>
-<hr class="docutils" />
-<section id="id1">
-<h2>🧩 Зависимости<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Python &gt;= 3.8</p></li>
-<li><p><a class="reference external" href="https://python-poetry.org/">Poetry</a></p></li>
-<li><p><a class="reference external" href="https://ffmpeg.org/">FFmpeg</a> (для Whisper)</p></li>
-<li><p><a class="reference external" href="https://ollama.com/">Ollama</a> (локальный LLM)</p></li>
-</ul>
+<section id="audiopopup-from-main-py">
+<h2>AudioPopup (from main.py)<a class="headerlink" href="#audiopopup-from-main-py" title="Link to this heading">#</a></h2>
 </section>
-<hr class="docutils" />
-<section id="macos">
-<h2>🛠 Установка на macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h2>
-<section id="poetry">
-<h3>1. Установи Poetry<a class="headerlink" href="#poetry" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://install.python-poetry.org<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
-poetry<span class="w"> </span>--version
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h3>2. Создай виртуальное окружение<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my-audio-ai-app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>my-audio-ai-app
-poetry<span class="w"> </span>init<span class="w"> </span>--no-interaction
-poetry<span class="w"> </span>shell
-</pre></div>
-</div>
-</section>
-<section id="id3">
-<h3>3. Установи зависимости<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>pyqt6<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sounddevice<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>numpy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>transformers<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>torch<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>requests<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>pygments<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>git+https://github.com/openai/whisper.git<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>ollama
-</pre></div>
-</div>
-<blockquote>
-<div><p>💡 Если проблемы с <code class="docutils literal notranslate"><span class="pre">torch</span></code>, попробуй:</p>
-</div></blockquote>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>add<span class="w"> </span>torch<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cpu
-</pre></div>
-</div>
-</section>
-<section id="ffmpeg-portaudio">
-<h3>4. Установи FFmpeg и PortAudio<a class="headerlink" href="#ffmpeg-portaudio" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ffmpeg<span class="w"> </span>portaudio
-</pre></div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="ollama">
-<h2>🤖 Установка и запуск Ollama<a class="headerlink" href="#ollama" title="Link to this heading">#</a></h2>
-<section id="id4">
-<h3>Установка:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ollama
-</pre></div>
-</div>
-</section>
-<section id="id5">
-<h3>Запуск сервера:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ollama<span class="w"> </span>serve
-</pre></div>
-</div>
-</section>
-<section id="id6">
-<h3>Загрузка модели:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ollama<span class="w"> </span>run<span class="w"> </span>mistral
-</pre></div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="gui">
-<h2>🚀 Запуск GUI приложения<a class="headerlink" href="#gui" title="Link to this heading">#</a></h2>
-<p>Убедитесь, что у вас есть файлы <code class="docutils literal notranslate"><span class="pre">main.py</span></code> и <code class="docutils literal notranslate"><span class="pre">manager.py</span></code>. Затем запустите:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>gui.py
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="id7">
-<h2>✅ Как пользоваться<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Нажмите <strong>“Start Record”</strong> — начнётся запись голоса.</p></li>
-<li><p>После остановки — аудио будет автоматически распознано.</p></li>
-<li><p>Нажмите <strong>“Explain”</strong> — будет получен ответ от LLM (Ollama).</p></li>
-</ol>
-</section>
-<hr class="docutils" />
-<section id="id8">
-<h2>📁 Структура проекта<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-audio-ai-app/
-├── gui.py               # PyQt интерфейс
-├── manager.py           # SoundManager + AI logic
-├── test.wav             # Временный файл записи
-├── pyproject.toml       # Poetry конфигурация
-└── README.md            # Документация
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="id9">
-<h2>🧠 Модели<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
-<p>Используются:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">openai/whisper</span></code> — для распознавания речи</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mistral</span></code>, <code class="docutils literal notranslate"><span class="pre">llama2</span></code>, <code class="docutils literal notranslate"><span class="pre">gemma</span></code> — LLM модели через Ollama</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">distilgpt2</span></code>, <code class="docutils literal notranslate"><span class="pre">flan-t5-base</span></code> — через <code class="docutils literal notranslate"><span class="pre">transformers</span></code></p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -584,22 +437,13 @@ poetry<span class="w"> </span>shell
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="whisper.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to Audio recognition book</p>
+        <p class="prev-next-title">🎙 Использование <code class="docutils literal notranslate"><span class="pre">openai-whisper</span></code> с <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code></p>
       </div>
-    </a>
-    <a class="right-next"
-       href="setup.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project settings</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -617,30 +461,9 @@ poetry<span class="w"> </span>shell
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Document settings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-ai-app-pyqt6-whisper-ollama">🎙️ Audio AI App (PyQt6 + Whisper + Ollama)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🧩 Зависимости</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">🛠 Установка на macOS</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">1. Установи Poetry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. Создай виртуальное окружение</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3. Установи зависимости</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ffmpeg-portaudio">4. Установи FFmpeg и PortAudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soundmanager-from-manager-py">SoundManager (from manager.py)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audiopopup-from-main-py">AudioPopup (from main.py)</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ollama">🤖 Установка и запуск Ollama</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Установка:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Запуск сервера:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Загрузка модели:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui">🚀 Запуск GUI приложения</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">✅ Как пользоваться</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">📁 Структура проекта</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🧠 Модели</a></li>
-</ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
