@@ -87,7 +87,7 @@ class SoundManager:
         """
         Record audio from the microphone and save it to a WAV file."""
         print("Recording sound...")
-        duration = 8  # seconds
+        duration = 15  # seconds
         samplerate = 44100
 
         print("🎤 Запись началась...")
@@ -148,8 +148,13 @@ class AiManager:
         return response.json()["response"]
     
     @timer
-    def ask_ollama(self, prompt):
+    def ask_ollama(self, prompt, translate=True):
         role = "You are a Senior software engineer with main skill Python, answer the next question:"
+        if not prompt.endswith("?"):
+            prompt += "?"
+        if translate:
+            prompt = f"{prompt} (Ответ должен быть на русском языке.)"
+
         modified_prompt = f"[INST]{role} {prompt}[/INST]"
         response: ChatResponse = chat(
             model=AIModels.llama_mistral,

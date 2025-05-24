@@ -1,4 +1,5 @@
 import sys
+import time
 from PyQt6.QtWidgets import (
     QApplication,
     QDialog,
@@ -38,7 +39,7 @@ class AudioPopup(QDialog):
         self.button_layout = QVBoxLayout()
 
         # Buttons
-        self.start_button = QPushButton("Start Record")
+        self.start_button = QPushButton("Start Voice Recording")
         # Create a horizontal layout for Recognize button and Auto checkbox
 
         self.recognize_layout = QHBoxLayout()
@@ -99,7 +100,7 @@ class AudioPopup(QDialog):
         self.setLayout(main_layout)
 
         # Connect buttons to functions
-        self.start_button.clicked.connect(self.toggle_recording)
+        self.start_button.clicked.connect(self.start_recording)
         self.recognize_button.clicked.connect(self.recognize_audio)
         self.explain_button.clicked.connect(self.explain_function)
 
@@ -108,22 +109,32 @@ class AudioPopup(QDialog):
 
     def toggle_recording(self):
         if not self.is_recording:
+            self.status_label.setText("🎤 Recording started...")
+            time.sleep(1)  # Simulate a short delay for UI update
             self.start_recording()
+            self.start_button.setText("✅ Stop Record")
+            self.is_recording = True
         else:
             self.stop_recording()
 
     def start_recording(self):
         """
         Start recording audio and update the UI accordingly."""
+        
         self.status_label.setText("🎤 Recording started...")
-        self.start_button.setText("✅ Stop Record")
+        self.start_button.setText("✅ Recording")
+        QApplication.processEvents()
+
         self.is_recording = True
+        print("🎤 Recording started...")
         self.sound_manager.record()
         self.status_label.setText("✅ Recording ends.")
+        self.start_button.setText("✅ Start Voice Recording")
         if self.auto_recognize.isChecked():
             self.recognize_audio()
         if self.result and self.auto_explain.isChecked():
             self.explain_function()
+        self.status_label.setText("✅ Recording ends.")
         # Add your recording logic here (e.g., self.sound_manager.record())
 
     def stop_recording(self):
@@ -133,7 +144,9 @@ class AudioPopup(QDialog):
         # Add your stop recording logic here (e.g., self.sound_manager.stop())
 
     def recognize_audio(self):
+        print("🎤 Recoginze started...")
         self.status_label.setText("✅ Recognizing audio...")
+        QApplication.processEvents()
         self.result = self.sound_manager.recognition()
         self.question_label.setText(f"Question: {self.result['result']}")
         self.execution_label.setText(
@@ -145,7 +158,7 @@ class AudioPopup(QDialog):
     def explain_function(self):
         self.status_label.setText("✅ Start explain....")
         print("✅  Explaining function...")
-        answer = self.ai_manager.ask_ollama(self.result)
+        answer = self.ai_manager.ask_ollama(self.result['result'], translate=True)
         # Highlight Python syntax
         # formatter = HtmlFormatter(style="colorful", full=False, noclasses=True)
         # highlighted_code = highlight(answer, PythonLexer(), formatter)
