@@ -68,7 +68,7 @@ docs/_build/
 *.secret
 
 # IDE files
-.vscode/
+# .vscode/
 .idea/
 *.swp
 *.swo
