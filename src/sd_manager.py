@@ -3,7 +3,7 @@ import wave
 import numpy as np
 import whisper
 import os
-import requests
+from src.utils import timer
 
 
 class SoundManager:
@@ -15,13 +15,13 @@ class SoundManager:
         # Initialize the Whisper model (you can choose a different size: "tiny", "base", "small", "medium", "large")
         # self.model = whisper.load_model("medium")
         # self.model = whisper.load_model("medium", device="cuda")  # Use GPU
-        self.model = whisper.load_model("medium", device="cpu")  #  , in_memory=True)  # Use CPU
+        self.model = whisper.load_model("medium", device="cpu")  # , in_memory=True)  # Use CPU
 
     def record(self):
         """
         Record audio from the microphone and save it to a WAV file."""
         print("Recording sound...")
-        duration = 15  # seconds
+        duration = 10  # seconds
         samplerate = 44100
 
         print("🎤 Запись началась...")

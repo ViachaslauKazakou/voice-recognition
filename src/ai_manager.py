@@ -20,7 +20,9 @@ class AIModels:
     heavy: str = "google/flan-t5-xl"
     light_1: str = "mistralai/Mistral-7B-Instruct-v0.2"
     distilgpt2: str = "distilgpt2"
-    llama_mistral: str = "mistral"
+    llama_mistral: str = "mistral:latest"
+    deepseek: str = "deepseek-r1"
+    gemma: str = "gemma3:latest"
     # heavy: str = "mistralai/Mistral-7B-Instruct-v0.2"
     # light: str = "meta-llama/Llama-2-7b-chat-hf"
     # medium: str = "meta-llama/Llama-2-7b-chat-hf"
@@ -56,7 +58,7 @@ class AiManager:
     """
     def __init__(self):
         # Initialize Ollama with LangChain
-        self.llm = Ollama(model=AIModels.llama_mistral)
+        self.llm = Ollama(model=AIModels.gemma)
         self.memory = ConversationBufferMemory()
         
         # Create a conversation chain
