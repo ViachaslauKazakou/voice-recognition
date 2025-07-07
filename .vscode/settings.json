@@ -6,5 +6,6 @@
         "titleBar.activeBackground": "#38441C",
         "titleBar.activeForeground": "#c2caae"
     },
-    "flake8.enabled" : false
+    "flake8.enabled" : false,
+    "editor.formatOnSave": true
 }

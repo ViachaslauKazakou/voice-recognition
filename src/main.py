@@ -12,9 +12,16 @@ from PyQt6.QtWidgets import (
     QSizePolicy,
     QScrollArea,
     QCheckBox,
-    QTextEdit
-    )
-from PyQt6.QtCore import QThreadPool, QRunnable, pyqtSlot, QMetaObject, Qt, QGenericArgument # MODIFIED: Added QGenericArgument
+    QTextEdit,
+)
+from PyQt6.QtCore import (
+    QThreadPool,
+    QRunnable,
+    pyqtSlot,
+    QMetaObject,
+    Qt,
+    QGenericArgument,
+)  # MODIFIED: Added QGenericArgument
 from src.sd_manager import SoundManager
 from src.ai_manager import AiManager
 from pygments import highlight
@@ -68,7 +75,7 @@ class AudioPopup(QDialog):
     def __init__(self):
         super().__init__()
         self.recognized = {}
-        
+
         self.setWindowTitle("AI assistant Julius")
         self.setFixedSize(600, 700)  # Fixed size for the popup
         self.sound_manager = SoundManager()
@@ -87,6 +94,7 @@ class AudioPopup(QDialog):
 
         # Buttons
         self.start_button = QPushButton("Start Voice Recording")
+
         # add textbox and swicth for auido/text for recognition
         # --- ADD: mode switch and text entry ---
         self.text_mode_switch = QCheckBox("Use text input instead of mic")
@@ -95,10 +103,11 @@ class AudioPopup(QDialog):
 
         self.text_input = QTextEdit()
         self.text_input.setPlaceholderText("Type your question here…")
-        self.text_input.setVisible(True)
+        self.text_input.setVisible(False)
+
         main_layout.addWidget(self.text_input)
         # — end add —
-        
+
         # Create a horizontal layout for Recognize button and Auto checkbox
 
         self.recognize_layout = QHBoxLayout()
@@ -169,14 +178,15 @@ class AudioPopup(QDialog):
 
         # State to track recording
         self.is_recording = False
-        
+
     def toggle_input_mode(self, state):
         """Show text box when checked, disable mic start button."""
-        text_only = (state == Qt.CheckState.Checked)
-        self.text_input.setVisible(text_only)
-        self.start_button.setEnabled(not text_only)
+        # text_only = (state == Qt.CheckState.Checked)
+        self.text_only = self.text_mode_switch.isChecked()
+        self.text_input.setVisible(self.text_only)
+        self.start_button.setEnabled(not self.text_only)
         # We’ll also enable “Recognize” so user can click it with text mode
-        self.recognize_button.setEnabled(True)
+        self.recognize_button.setEnabled(not self.text_only)
 
     # audio recording part
     def start_recording(self):
@@ -222,7 +232,7 @@ class AudioPopup(QDialog):
         except Exception as e:
             logger.error(f"Error in update_ui_after_recognition: {e}", exc_info=True)
             self.status_label.setText(f"Error during recognition: {str(e)}")
-            
+
     # def on_recognition_finished(self):
     #     # This runs in the worker thread, so use signals or QMetaObject.invokeMethod to update UI safely
     #     QMetaObject.invokeMethod(self, "update_ui_after_recognition", Qt.ConnectionType.QueuedConnection)
@@ -233,7 +243,7 @@ class AudioPopup(QDialog):
         # QApplication.processEvents()
         worker = RecognitionWorker(self.sound_manager, self.update_ui_after_recognition)
         self.threadpool.start(worker)
-        
+
     def recognize_audio(self):
         # if text-mode, bypass mic and treat text as recognized result
         if self.text_mode_switch.isChecked():
@@ -242,10 +252,7 @@ class AudioPopup(QDialog):
                 self.status_label.setText("❌ Please enter some text first.")
                 return
             # reuse your existing update callback
-            self.update_ui_after_recognition({
-                "result": user_text,
-                "execution_time": 0.0
-            })
+            self.update_ui_after_recognition({"result": user_text, "execution_time": 0.0})
             return
 
         # otherwise original flow:
@@ -256,13 +263,23 @@ class AudioPopup(QDialog):
     def explain_question(self):
         self.status_label.setText("✅ Start explaining question....")
         logger.info("✅  Explaining question...")
-        if not self.recognized:
-            self.status_label.setText("❌ No question to explain. Please record and recognize first.")
-            return
-        if self.use_chain.isChecked():
-            answer = self.ai_manager.ask_ollama_memory(self.recognized["result"], translate=True)
+
+        if self.text_mode_switch.isChecked():
+            question_text = self.text_input.toPlainText().strip()
+            if not question_text:
+                self.status_label.setText("❌ Please enter some text first.")
+                return
         else:
-            answer = self.ai_manager.ask_ollama(self.recognized["result"], translate=True)
+            # Otherwise use the recognized result
+            question_text = self.recognized.get("result", "").strip()
+            if not self.recognized:
+                self.status_label.setText("❌ No question to explain. Please record and recognize first.")
+                return
+
+        if self.use_chain.isChecked():
+            answer = self.ai_manager.ask_ollama_memory(question_text, translate=True)
+        else:
+            answer = self.ai_manager.ask_ollama(question_text, translate=True)
         # Highlight Python syntax
         # formatter = HtmlFormatter(style="colorful", full=False, noclasses=True)
         # highlighted_code = highlight(answer, PythonLexer(), formatter)

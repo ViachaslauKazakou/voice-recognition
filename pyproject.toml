@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "audio-capture"
+name = "Chatterbox voice and text assistant"
 version = "0.1.0"
 description = "Desktop applications"
 authors = ["Viachaslau_Kazakou <sly.kazakoff@gmail.com>"]
@@ -31,6 +31,10 @@ roman-numerals-py = "3.1.0"
 sphinx_autodoc_typehints = "1.24.0"
 langchain = "0.1.10"
 librosa = "^0.11.0"
+sentence-transformers = "^5.0.0"
+faiss-cpu = "^1.11.0"
+hf-xet = "^1.1.5"
+
 
 
 [build-system]
