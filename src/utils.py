@@ -4,6 +4,7 @@ def timer(func) -> dict:
     param func: The function to be decorated.
     return: dict[str, float] - A dictionary containing the result of the function and its execution time.
     """
+
     def wrapper(*args, **kwargs):
         import time
 
