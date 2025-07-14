@@ -3,17 +3,10 @@ from typing import List, Dict
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
-import logging
 
-# Настройка логирования
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("SimpleRAG")
-# Add this block to enable console logging
-if not logger.hasHandlers():
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter("[%(asctime)s] - %(levelname)s [%(name)s]: %(message)s")
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
+from src.utils import setup_logger
+
+logger = setup_logger(__name__)
 
 # Простая реализация RAG (Retrieval-Augmented Generation)
 

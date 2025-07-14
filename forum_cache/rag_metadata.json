@@ -1,0 +1,7 @@
+{
+  "documents_hash": "3c0d181c35bc7886331fa1ca5cae2ca7",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "documents_count": 22,
+  "created_at": "2025-07-13T18:58:20.641659",
+  "langchain_version": "0.1.10"
+}

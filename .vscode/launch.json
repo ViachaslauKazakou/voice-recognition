@@ -9,6 +9,13 @@
         "console": "integratedTerminal"
     },
     {
+        "name": "Run AIManager",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder}/src/ai_manager.py",
+        "console": "integratedTerminal"
+    },
+    {
         "name": "Python Debugger: Current File",
         "type": "debugpy",
         "request": "launch",

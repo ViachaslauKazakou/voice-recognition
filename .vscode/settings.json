@@ -6,6 +6,30 @@
         "titleBar.activeBackground": "#38441C",
         "titleBar.activeForeground": "#c2caae"
     },
+
+    // Дополнительные полезные настройки для Python:
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    // Black formatter settings
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "VKtools.simple-black-formatter"
+    },
+    "black-formatter.args": [
+        "--line-length=120",
+        "--target-version=py312",
+        "--experimental-string-processing",
+        "--preview"
+    ],
+
+    
     "flake8.enabled" : true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -14,12 +38,12 @@
     "editor.detectIndentation": false,
     "editor.wordWrap": "on",
     "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "boundary",
+    // "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": true,
     "editor.cursorBlinking": "smooth",
     "editor.cursorStyle": "line",
     "editor.fontSize": 14,
-    "editor.lineHeight": 20,
+    "editor.lineHeight": 19,
     "editor.suggestSelection": "first",
     "editor.snippetSuggestions": "top",
     "editor.parameterHints.enabled": true,
@@ -32,5 +56,20 @@
     "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.unicodeHighlight.allowedCharacters": {},
     "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "off",
+
+    // Добавьте эти настройки для увеличения шрифта
+    "chat.editor.fontSize": 12,
+    "chat.editor.lineHeight": 16,
+    "workbench.tree.indent": 18,
+    "workbench.tree.renderIndentGuides": "always",
+    "terminal.integrated.fontSize": 12,
+    "debug.console.fontSize": 12,
+    "markdown.preview.fontSize": 12,
+    
+    // Для увеличения шрифта в табах и других элементах интерфейса
+    "window.zoomLevel": 0.5,
+    
+    // Альтернативно, для более точного контроля:
+    "editor.accessibilitySupport": "auto"
 }

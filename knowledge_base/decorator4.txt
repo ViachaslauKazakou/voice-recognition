@@ -1,0 +1,25 @@
+WarningWarningWarning
+This document is meant to describe the decorator syntax and the process that resulted in the decisions that were made. It does not attempt to cover the huge number of potential alternative syntaxes, nor is it an attempt to exhaustively list all the positives and negatives of each form.
+
+Abstract
+The current method for transforming functions and methods (for instance, declaring them as a class or static method) is awkward and can lead to code that is difficult to understand. Ideally, these transformations should be made at the same point in the code where the declaration itself is made. This PEP introduces new syntax for transformations of a function or method declaration.
+
+Motivation
+The current method of applying a transformation to a function or method places the actual transformation after the function body. For large functions this separates a key component of the function’s behavior from the definition of the rest of the function’s external interface. For example:
+
+def foo(self):
+    perform method operation
+foo = classmethod(foo)
+This becomes less readable with longer methods. It also seems less than pythonic to name the function three times for what is conceptually a single declaration. A solution to this problem is to move the transformation of the method closer to the method’s own declaration. The intent of the new syntax is to replace
+
+def foo(cls):
+    pass
+foo = synchronized(lock)(foo)
+foo = classmethod(foo)
+with an alternative that places the decoration in the function’s declaration:
+
+@classmethod
+@synchronized(lock)
+def foo(cls):
+    pass
+Modifying classes in this fashion is also possible, though the benefits are not as immediately apparent. Almost certainly, anything which could be done with class decorators could be done using metaclasses, but using metaclasses is sufficiently obscure that there is some attraction to having an easier way to make simple modifications to classes. For Python 2.4, only function/method decorators are being added.
