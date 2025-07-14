@@ -75,3 +75,4 @@ docs/_build/
 *.swn
 *.bak
 *.tmp
+*.pkl
