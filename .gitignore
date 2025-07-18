@@ -76,3 +76,5 @@ docs/_build/
 *.bak
 *.tmp
 *.pkl
+
+answers.txt

@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import Optional, Dict, Any
 
 
-def add_context_to_json(file_path: str, character: str, new_context: str) -> bool:
+def add_context_to_json(file_path: str, character: str, new_content: str, new_context: str) -> bool:
     """
     Находит первое сообщение указанного персонажа в JSON файле и создает новое сообщение
     на его основе с измененным контекстом.
@@ -46,7 +46,8 @@ def add_context_to_json(file_path: str, character: str, new_context: str) -> boo
         new_message = copy.deepcopy(base_message)
         
         # Обновляем контекст и другие поля
-        new_message['context'] = new_context
+        new_message['content'] = new_content.strip().replace('\n', ' ')
+        new_message['context'] = new_context.strip().replace('\n', ' ')
         new_message['timestamp'] = datetime.now().isoformat() + 'Z'
         
         # Генерируем новый ID
@@ -169,7 +170,7 @@ def preview_character_messages(file_path: str, character: str, limit: int = 5) -
         return []
 
 
-def batch_add_context(file_paths: list, character: str, new_context: str) -> Dict[str, bool]:
+def batch_add_context(file_paths: list, character: str, new_context: str, new_content: str) -> Dict[str, bool]:
     """
     Добавляет контекст для персонажа в несколько файлов
     
@@ -191,7 +192,7 @@ def batch_add_context(file_paths: list, character: str, new_context: str) -> Dic
             print(f"  Содержание: {preview[0].get('content', '')[:100]}...")
         
         # Добавляем контекст
-        results[file_path] = add_context_to_json(file_path, character, new_context)
+        results[file_path] = add_context_to_json(file_path, character, new_context, new_content)
     
     return results
 
@@ -207,10 +208,15 @@ if __name__ == "__main__":
     
     character = "Alaev"
     new_context = """
-Есть общепризнанная терминология. Есть принципиальные различия между роботом, механикой и автоматом.
-Робот и автомат тебе никогда не дадут полного контроля над управляемостью авто.
-Тебе это не нужно. Тебе и редуктор сойдет. 
-У тебя колеса авто летают над ямами по баллистическим траекториям 🤣
+Иди лучше давай советы как картошку сажать, знаток липовый. PowerShift, он же  - Getrag - немецкая коробка от Магны, Айсин - японец, в настоящее время Форд ставит на свои авто автоматическую коробку собственного производства, учи матчасть, двоешник. 
+    """
+    new_content = """
+Форд не разрабатывал сам power shift, права ему не принадлежат на изобретение.
+https://worldwide.espacenet.com/patent/search/family/023089118/publication/US3802293A?q=pn%3DUS3802293A
+Правильно писать двоеЧник.
+Тормозную систему, подвеску, электронику твой Форд тоже заказывает.
+Там и в движке полно чужих патентов.
+Все автопроизводители давно так работают.
 """
     
     print(f"🔍 Поиск сообщений персонажа '{character}' и добавление нового контекста...")
@@ -218,7 +224,7 @@ if __name__ == "__main__":
     print("=" * 70)
     
     # Пакетная обработка файлов
-    results = batch_add_context(json_files, character, new_context)
+    results = batch_add_context(json_files, character, new_context, new_content)
     
     # Показываем результаты
     print("\n" + "=" * 70)
